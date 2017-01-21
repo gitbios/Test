@@ -23,7 +23,7 @@ void *thread1()
                 pthread_mutex_lock(&mut);
                         number++;
                 pthread_mutex_unlock(&mut);
-                sleep(2);
+                sleep(1);
         }
 
 
@@ -41,7 +41,7 @@ void *thread2()
                 pthread_mutex_lock(&mut);
                         number++;
                 pthread_mutex_unlock(&mut);
-                sleep(3);
+                sleep(1);
         }
 
 
@@ -85,11 +85,9 @@ int main()
 {
         /*用默认属性初始化互斥锁*/
         pthread_mutex_init(&mut,NULL);
-
         printf("i am main thread\n");
         thread_create();
         printf("wait for end!\n");
         thread_wait();
-
         return 0;
 }
